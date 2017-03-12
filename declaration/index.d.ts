@@ -37,9 +37,10 @@ export declare const __construct: {
     other(call: keyOfExpress, ...args: any[]): PromiseMw2.Command;
     next(): PromiseMw2.Command;
 };
+type Construct = typeof __construct;
 export declare type HookFnResp = void;
 export declare type HookFnT<T extends PromiseMw2.Command> = (cmd: T) => (res: express.Response, next: express.NextFunction) => Promise<HookFnResp>;
-export declare type mwGenerateFnT = (req: express.Request, helper: typeof __construct) => Promise<PromiseMw2.Command>;
+export declare type mwGenerateFnT = (req: express.Request, helper: Construct) => Promise<PromiseMw2.Command>;
 export declare const middlewareFrom: (handler: mwGenerateFnT) => express.RequestHandler;
 export declare type methodsT = 'all' | 'get' | 'post' | 'put' | 'delete' | 'patch' | 'options' |
     'head' | 'checkout' | 'copy' | 'lock' | 'merge' | 'mkactivity' | 'mkcol' | 'move' | 'm-search'
