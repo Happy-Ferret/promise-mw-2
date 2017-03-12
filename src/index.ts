@@ -34,6 +34,17 @@ export class Error extends global.Error {
 
 export const __construct = {
     Error,
+    ensureHas(obj: object, keys: string[]) {
+        keys.forEach(key => {
+            if (obj[key] === undefined) {
+                throw new Error(
+                    400,
+                    { code: 'mwvalidation', missingKey: key },
+                    `Missing key - ${key} - in payload`
+                );
+            }
+        })
+    },
     send(...args) {
         return __construct.status(200, 'send', ...args)
     },

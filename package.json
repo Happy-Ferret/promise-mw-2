@@ -13,5 +13,5 @@
     "typescript": "^2.2.1"
   },
   "dependencies": {},
-  "typings" : "declaration/index.d.ts"
+  "typings" : "declaration/index_.d.ts"
 }

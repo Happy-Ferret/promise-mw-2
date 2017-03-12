@@ -1,10 +1,6 @@
 /// <reference types="express" />
 /// <reference path="../src/types.d.ts"/>
 
-declare global {
-    interface Promise<T> { __promiseBrand__ : T }
-}
-
 import express = require('express');
 export import STATUS_CODES = require('./status-codes');
 export declare class Error extends global.Error {
