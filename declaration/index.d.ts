@@ -21,7 +21,8 @@ type keyOfExpress = "header" | "end" | "status" | "sendStatus" | "links" | "send
     | "removeListener" | "removeAllListeners" | "setMaxListeners" | "getMaxListeners" | "listeners"
     | "eventNames" | "listenerCount"
 
-export declare const __construct: {
+
+type Construct = {
     Error: typeof Error;
     send(...args: any[]): {
         __call__: keyOfExpress;
@@ -37,7 +38,8 @@ export declare const __construct: {
     other(call: keyOfExpress, ...args: any[]): PromiseMw2.Command;
     next(): PromiseMw2.Command;
 };
-type Construct = typeof __construct;
+
+export declare const __construct: Construct;
 export declare type HookFnResp = void;
 export declare type HookFnT<T extends PromiseMw2.Command> = (cmd: T) => (res: express.Response, next: express.NextFunction) => Promise<HookFnResp>;
 export declare type mwGenerateFnT = (req: express.Request, helper: Construct) => Promise<PromiseMw2.Command>;
@@ -50,10 +52,10 @@ export declare type pmwMatcher2 = (...handlers: mwGenerateFnT[]) => void;
 export declare type wrapT = {
     [methods in methodsT]: pmwMatcher;
 } & {
-    use: pmwMatcher | pmwMatcher2;
-} & {
-    route: (param) => {
-        [keys in methodsT]: pmwMatcher2;
+        use: pmwMatcher | pmwMatcher2;
+    } & {
+        route: (param) => {
+            [keys in methodsT]: pmwMatcher2;
+        };
     };
-};
 export declare function wrap(app: express.Application | express.Router): wrapT;
