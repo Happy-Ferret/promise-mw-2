@@ -17,6 +17,7 @@ type keyOfExpress = keyof express.Response
 
 type Construct = {
     Error: typeof Error;
+    ensureHas(obj: object, keys: string[]): void;
     send(...args: any[]): {
         __call__: keyOfExpress;
         status: STATUS_CODES;

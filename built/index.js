@@ -34,6 +34,13 @@ class Error extends global.Error {
 exports.Error = Error;
 exports.__construct = {
     Error,
+    ensureHas(obj, keys) {
+        keys.forEach(key => {
+            if (obj[key] === undefined) {
+                throw new Error(400, { code: 'mwvalidation', missingKey: key }, `Missing key - ${key} - in payload`);
+            }
+        });
+    },
     send(...args) {
         return exports.__construct.status(200, 'send', ...args);
     },
