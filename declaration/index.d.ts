@@ -24,7 +24,7 @@ type keyOfExpress = "header" | "end" | "status" | "sendStatus" | "links" | "send
 export declare const __construct: {
     Error: typeof Error;
     send(...args: any[]): {
-        __call__: keyofExpress;
+        __call__: keyOfExpress;
         status: STATUS_CODES;
         args: any[];
     };
