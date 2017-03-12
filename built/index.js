@@ -118,36 +118,5 @@ function wrap(app) {
     };
     __wrapCache.set(app, out);
     return out;
-    /*
-    all: IRouterMatcher<this>;
-    get: IRouterMatcher<this>;
-    post: IRouterMatcher<this>;
-    put: IRouterMatcher<this>;
-    delete: IRouterMatcher<this>;
-    patch: IRouterMatcher<this>;
-    options: IRouterMatcher<this>;
-    head: IRouterMatcher<this>;
-
-    checkout: IRouterMatcher<this>;
-    copy: IRouterMatcher<this>;
-    lock: IRouterMatcher<this>;
-    merge: IRouterMatcher<this>;
-    mkactivity: IRouterMatcher<this>;
-    mkcol: IRouterMatcher<this>;
-    move: IRouterMatcher<this>;
-    "m-search": IRouterMatcher<this>;
-    notify: IRouterMatcher<this>;
-    purge: IRouterMatcher<this>;
-    report: IRouterMatcher<this>;
-    search: IRouterMatcher<this>;
-    subscribe: IRouterMatcher<this>;
-    trace: IRouterMatcher<this>;
-    unlock: IRouterMatcher<this>;
-    unsubscribe: IRouterMatcher<this>;
-
-    use: IRouterHandler<this> & IRouterMatcher<this>;
-
-    route(prefix: PathParams): IRoute;
-    */
 }
 exports.wrap = wrap;

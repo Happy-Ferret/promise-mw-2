@@ -104,11 +104,10 @@ export type methodsT = 'all'| 'get'| 'post'| 'put'| 'delete'| 'patch'| 'options'
 
 export type pmwMatcher = (path: string, ...handlers: mwGenerateFnT[]) => void
 export type pmwMatcher2 = (...handlers: mwGenerateFnT[]) => void
-export type wrapT = {
-    [methods: methodsT]: pmwMatcher,
-    use: pmwMatcher | pmwMatcher2
-    route : { [keys:methodsT] : pmwMatcher2 }
-}
+export type wrapT =
+    {[methods in methodsT]: pmwMatcher; } &
+    { use: pmwMatcher | pmwMatcher2 } &
+    { route: (param) => { [keys in methodsT]: pmwMatcher2 } }
 
 const __wrapCache : Map<object, wrapT> = new Map()
 
@@ -152,35 +151,4 @@ export function wrap(app: express.Application | express.Router): wrapT {
 
     __wrapCache.set(app, out)
     return out
-    /*
-    all: IRouterMatcher<this>;
-    get: IRouterMatcher<this>;
-    post: IRouterMatcher<this>;
-    put: IRouterMatcher<this>;
-    delete: IRouterMatcher<this>;
-    patch: IRouterMatcher<this>;
-    options: IRouterMatcher<this>;
-    head: IRouterMatcher<this>;
-
-    checkout: IRouterMatcher<this>;
-    copy: IRouterMatcher<this>;
-    lock: IRouterMatcher<this>;
-    merge: IRouterMatcher<this>;
-    mkactivity: IRouterMatcher<this>;
-    mkcol: IRouterMatcher<this>;
-    move: IRouterMatcher<this>;
-    "m-search": IRouterMatcher<this>;
-    notify: IRouterMatcher<this>;
-    purge: IRouterMatcher<this>;
-    report: IRouterMatcher<this>;
-    search: IRouterMatcher<this>;
-    subscribe: IRouterMatcher<this>;
-    trace: IRouterMatcher<this>;
-    unlock: IRouterMatcher<this>;
-    unsubscribe: IRouterMatcher<this>;
-
-    use: IRouterHandler<this> & IRouterMatcher<this>;
-
-    route(prefix: PathParams): IRoute;
-    */
 }

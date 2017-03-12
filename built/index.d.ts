@@ -33,10 +33,12 @@ export declare type methodsT = 'all' | 'get' | 'post' | 'put' | 'delete' | 'patc
 export declare type pmwMatcher = (path: string, ...handlers: mwGenerateFnT[]) => void;
 export declare type pmwMatcher2 = (...handlers: mwGenerateFnT[]) => void;
 export declare type wrapT = {
-    [methods: methodsT]: pmwMatcher;
+    [methods in methodsT]: pmwMatcher;
+} & {
     use: pmwMatcher | pmwMatcher2;
-    route: {
-        [keys: methodsT]: pmwMatcher2;
+} & {
+    route: (param) => {
+        [keys in methodsT]: pmwMatcher2;
     };
 };
 export declare function wrap(app: express.Application | express.Router): wrapT;
