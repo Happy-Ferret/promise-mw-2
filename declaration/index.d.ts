@@ -16,14 +16,7 @@ export declare class Error extends global.Error {
     constructor(httpStatus: STATUS_CODES, extra: any, message: string);
 }
 
-type keyOfExpress = "header" | "end" | "status" | "sendStatus" | "links" | "send" | "json" | "jsonp"
-    | "sendFile" | "sendfile" | "download" | "contentType" | "type" | "format" | "attachment" | "set"
-    | "headersSent" | "get" | "clearCookie" | "cookie" | "location" | "redirect" | "render" | "locals"
-    | "charset" | "vary" | "app" | "write" | "writeContinue" | "writeHead" | "statusCode" | "statusMessage"
-    | "setHeader" | "setTimeout" | "sendDate" | "getHeader" | "removeHeader" | "addTrailers" | "finished"
-    | "writable" | "addListener" | "emit" | "on" | "once" | "prependListener" | "prependOnceListener"
-    | "removeListener" | "removeAllListeners" | "setMaxListeners" | "getMaxListeners" | "listeners"
-    | "eventNames" | "listenerCount"
+type keyOfExpress = keyof express.Response
 
 
 type Construct = {
