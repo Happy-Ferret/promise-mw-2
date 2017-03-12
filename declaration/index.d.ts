@@ -29,7 +29,7 @@ export declare type HookFnResp = void;
 export declare type HookFnT<T extends PromiseMw2.Command> = (cmd: T) => (res: express.Response, next: express.NextFunction) => Promise<HookFnResp>;
 export declare type mwGenerateFnT = (req: express.Request, helper: typeof __construct) => Promise<PromiseMw2.Command>;
 export declare const middlewareFrom: (handler: mwGenerateFnT) => express.RequestHandler;
-export declare type methodsT = 'all' | 'get' | 'post' | 'put' | 'delete' | 'patch' | 'options' | 'head' | 'checkout' | 'copy' | 'lock' | 'merge' | 'mkactivity' | 'mkcol' | 'move' | 'm-search' | 'notify' | 'purge' | 'report' | 'searcg' | 'subscribe' | 'trace' | 'unlock' | 'unsubscribe';
+export declare type methodsT = 'all' | 'get' | 'post' | 'put' | 'delete' | 'patch' | 'options' | 'head' | 'checkout' | 'copy' | 'lock' | 'merge' | 'mkactivity' | 'mkcol' | 'move' | 'm-search' | 'notify' | 'purge' | 'report' | 'search' | 'subscribe' | 'trace' | 'unlock' | 'unsubscribe';
 export declare type pmwMatcher = (path: string, ...handlers: mwGenerateFnT[]) => void;
 export declare type pmwMatcher2 = (...handlers: mwGenerateFnT[]) => void;
 export declare type wrapT = {

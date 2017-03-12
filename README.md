@@ -59,16 +59,16 @@ export type mwGenerateFnT =
     (req: express.Request, res: typeof __construct) => Promise<Command>
  ```
 
- ## Error handling
+## Error handling
 
- Throw the errors using... `throw`. The errors will be sent to `next()`
- (which is expected to hit an error middleware you define).
+Throw the errors using... `throw`. The errors will be sent to `next()`
+(which is expected to hit an error middleware you define).
 
- We suggest setting the `statusCode` property of the error if the response status code is
- to be anything other than the default. Then handle that in the error middleware. The `res.Error()`
- constructor follows that principle..
+We suggest setting the `statusCode` property of the error if the response status code is
+to be anything other than the default. Then handle that in the error middleware. The `res.Error()`
+constructor follows that principle..
 
- ```typescript
+```typescript
 router.get('/login', (req, res) => {
     throw new res.Error(401, 'Unauthorized today')
 })

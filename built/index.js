@@ -80,7 +80,7 @@ exports.middlewareFrom = (handler) => (req, res, next) => __awaiter(this, void 0
 });
 const methods = ['all', 'get', 'post', 'put', 'delete', 'patch', 'options', 'head',
     'checkout', 'copy', 'lock', 'merge', 'mkactivity', 'mkcol', 'move', 'm-search',
-    'notify', 'purge', 'report', 'searcg', 'subscribe', 'trace', 'unlock', 'unsubscribe'];
+    'notify', 'purge', 'report', 'search', 'subscribe', 'trace', 'unlock', 'unsubscribe'];
 const __wrapCache = new Map();
 function wrap(app) {
     let find = __wrapCache.get(app);

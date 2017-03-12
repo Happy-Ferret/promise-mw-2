@@ -96,11 +96,11 @@ export const middlewareFrom
 
 const methods = ['all', 'get', 'post', 'put', 'delete', 'patch', 'options', 'head',
     'checkout', 'copy', 'lock', 'merge', 'mkactivity', 'mkcol', 'move', 'm-search',
-    'notify', 'purge', 'report', 'searcg', 'subscribe', 'trace', 'unlock', 'unsubscribe']
+    'notify', 'purge', 'report', 'search', 'subscribe', 'trace', 'unlock', 'unsubscribe']
 
 export type methodsT = 'all'| 'get'| 'post'| 'put'| 'delete'| 'patch'| 'options'| 'head'|
     'checkout'| 'copy'| 'lock'| 'merge'| 'mkactivity'| 'mkcol'| 'move'| 'm-search'|
-    'notify'| 'purge'| 'report'| 'searcg'| 'subscribe'| 'trace'| 'unlock'| 'unsubscribe'
+    'notify'| 'purge'| 'report'| 'search'| 'subscribe'| 'trace'| 'unlock'| 'unsubscribe'
 
 export type pmwMatcher = (path: string, ...handlers: mwGenerateFnT[]) => void
 export type pmwMatcher2 = (...handlers: mwGenerateFnT[]) => void
