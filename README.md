@@ -14,6 +14,11 @@ Promise-mw v2 is an iteration over the previous version with a slghtly different
   - In this version, besides providing the promise to middleware converter, an express.Application
     wrapper is also provided for shorter syntax.
 
+**Why stick to express?**
+
+This is a conservative option where you keep the express/connect ecosystem and still get the cleaner
+syntax from newer ES features.
+
 ## Usage
 
 Basic usage.
