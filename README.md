@@ -30,7 +30,7 @@ const app = express()
 
 const router = mw.wrap(app)
 
-router.get('/login', (req, res) => {
+router.get('/login', async (req, res) => {
     return res.send({ a : 1 })
 })
 ```
