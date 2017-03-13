@@ -34,10 +34,11 @@ router.get('/login', (req, res) => {
 regular middlewares, a function with the following signature is sent to the callback:
 
 ```typescript
-type callback = (req: express.Request, res: typeof __construct)
+type callback = (req: express.Request, res: typeof Construct)
 
-type __construct = {
+type Construct = {
     Error,                      //an error constructor with suggested fields
+    ensureHas(obj:any, keys:string[]) //helper to check the parameters exist
     render(...args) : Command   //alias to res.render(...)
     send(...args) : Command     //alias to res.status(200).send(...)
     status(status: STATUS_CODES, call:keyof express.Response, ...args) : Command
