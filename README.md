@@ -34,7 +34,7 @@ router.get('/login', (req, res) => {
 a regular middleware, a function with the following signature is sent to the callback:
 
 ```typescript
-type callback = (req: express.Request, res: Construct)
+type callback = (req: express.Request, res: Construct) => Promise<Command>
 
 type Construct = {
     Error,                      //an error constructor with suggested fields
