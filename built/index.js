@@ -7,7 +7,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.STATUS_CODES = require("./status-codes");
 class Error extends global.Error {
     constructor(arg1, arg2, arg3) {
@@ -53,6 +52,9 @@ exports.__construct = {
             status,
             args
         };
+    },
+    redirect(...args) {
+        return exports.__construct.other('redirect', ...args);
     },
     other(call, ...args) {
         return {

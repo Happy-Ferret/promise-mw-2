@@ -58,6 +58,9 @@ export const __construct = {
             args
         }
     },
+    redirect(...args) {
+        return __construct.other('redirect', ...args)
+    },
     other(call:keyof express.Response, ...args) : PromiseMw2.Command {
         return {
             __call__: call,

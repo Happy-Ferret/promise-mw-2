@@ -23,6 +23,7 @@ type Construct = {
         status: STATUS_CODES;
         args: any[];
     };
+    redirect(...args: any[]): PromiseMw2.Command;    
     render(...args: any[]): PromiseMw2.Command;
     status(status: STATUS_CODES, call: keyOfExpress, ...args: any[]): {
         __call__: keyOfExpress;
@@ -37,6 +38,7 @@ export declare const __construct: Construct;
 export declare type HookFnResp = void;
 export declare type HookFnT<T extends PromiseMw2.Command> = (cmd: T) => (res: express.Response, next: express.NextFunction) => Promise<HookFnResp>;
 export declare type mwGenerateFnT = (req: express.Request, helper: Construct) => Promise<PromiseMw2.Command>;
+export declare type Middleware = mwGenerateFnT;
 export declare const middlewareFrom: (handler: mwGenerateFnT) => express.RequestHandler;
 export declare type methodsT = 'all' | 'get' | 'post' | 'put' | 'delete' | 'patch' | 'options' |
     'head' | 'checkout' | 'copy' | 'lock' | 'merge' | 'mkactivity' | 'mkcol' | 'move' | 'm-search'

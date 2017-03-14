@@ -11,7 +11,7 @@ export declare class Error extends global.Error {
 }
 export declare const __construct: {
     Error: typeof Error;
-    ensureHas(obj: object, keys: string[]): void;
+    ensureHas(obj: any, keys: string[]): void;
     send(...args: any[]): {
         __call__: "header" | "end" | "status" | "sendStatus" | "links" | "send" | "json" | "jsonp" | "sendFile" | "sendfile" | "download" | "contentType" | "type" | "format" | "attachment" | "set" | "headersSent" | "get" | "clearCookie" | "cookie" | "location" | "redirect" | "render" | "locals" | "charset" | "vary" | "app" | "write" | "writeContinue" | "writeHead" | "statusCode" | "statusMessage" | "setHeader" | "setTimeout" | "sendDate" | "getHeader" | "removeHeader" | "addTrailers" | "finished" | "writable" | "addListener" | "emit" | "on" | "once" | "prependListener" | "prependOnceListener" | "removeListener" | "removeAllListeners" | "setMaxListeners" | "getMaxListeners" | "listeners" | "eventNames" | "listenerCount";
         status: STATUS_CODES;
@@ -23,6 +23,7 @@ export declare const __construct: {
         status: STATUS_CODES;
         args: any[];
     };
+    redirect(...args: any[]): PromiseMw2.Command;
     other(call: "header" | "end" | "status" | "sendStatus" | "links" | "send" | "json" | "jsonp" | "sendFile" | "sendfile" | "download" | "contentType" | "type" | "format" | "attachment" | "set" | "headersSent" | "get" | "clearCookie" | "cookie" | "location" | "redirect" | "render" | "locals" | "charset" | "vary" | "app" | "write" | "writeContinue" | "writeHead" | "statusCode" | "statusMessage" | "setHeader" | "setTimeout" | "sendDate" | "getHeader" | "removeHeader" | "addTrailers" | "finished" | "writable" | "addListener" | "emit" | "on" | "once" | "prependListener" | "prependOnceListener" | "removeListener" | "removeAllListeners" | "setMaxListeners" | "getMaxListeners" | "listeners" | "eventNames" | "listenerCount", ...args: any[]): PromiseMw2.Command;
     next(): PromiseMw2.Command;
 };
