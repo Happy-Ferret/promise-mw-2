@@ -152,14 +152,14 @@ export function wrap(app: express.Application | express.Router): wrapT {
 
     out.use = (...args) => {
         let path: string | undefined
-        let sendArgs: express.RequestHandler[]
+        let expMiddlewares: express.RequestHandler[]
         if (typeof args[0] === 'string') {
             path = args[0] as string
-            sendArgs = args.slice(1).map(middlewareFrom)
+            expMiddlewares = args.slice(1).map(middlewareFrom)
             app.use(path, ...(args.slice(1)))
         } else {
-            sendArgs = args.map(middlewareFrom)
-            app.use(...args)
+            expMiddlewares = args.map(middlewareFrom)
+            app.use(...expMiddlewares)
         }
     }
 

@@ -114,15 +114,15 @@ function wrap(app) {
     };
     out.use = (...args) => {
         let path;
-        let sendArgs;
+        let expMiddlewares;
         if (typeof args[0] === 'string') {
             path = args[0];
-            sendArgs = args.slice(1).map(exports.middlewareFrom);
+            expMiddlewares = args.slice(1).map(exports.middlewareFrom);
             app.use(path, ...(args.slice(1)));
         }
         else {
-            sendArgs = args.map(exports.middlewareFrom);
-            app.use(...args);
+            expMiddlewares = args.map(exports.middlewareFrom);
+            app.use(...expMiddlewares);
         }
     };
     __wrapCache.set(app, out);
