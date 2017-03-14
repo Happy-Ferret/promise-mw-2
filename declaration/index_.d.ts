@@ -23,7 +23,7 @@ type Construct = {
         status: STATUS_CODES;
         args: any[];
     };
-    redirect(...args: any[]): PromiseMw2.Command;    
+    redirect(...args: any[]): PromiseMw2.Command;
     render(...args: any[]): PromiseMw2.Command;
     status(status: STATUS_CODES, call: keyOfExpress, ...args: any[]): {
         __call__: keyOfExpress;
@@ -45,13 +45,20 @@ export declare type methodsT = 'all' | 'get' | 'post' | 'put' | 'delete' | 'patc
     | 'notify' | 'purge' | 'report' | 'search' | 'subscribe' | 'trace' | 'unlock' | 'unsubscribe';
 export declare type pmwMatcher = (path: string, ...handlers: mwGenerateFnT[]) => void;
 export declare type pmwMatcher2 = (...handlers: mwGenerateFnT[]) => void;
+
+interface useT {
+    (path: string, ...handlers: mwGenerateFnT[]): void;
+    (...handlers: mwGenerateFnT[]): void
+}
+
 export declare type wrapT = {
     [methods in methodsT]: pmwMatcher;
 } & {
-        use: pmwMatcher | pmwMatcher2;
+        use: useT;
     } & {
         route: (param) => {
             [keys in methodsT]: pmwMatcher2;
         };
     };
 export declare function wrap(app: express.Application | express.Router): wrapT;
+
